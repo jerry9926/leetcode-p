@@ -24,25 +24,25 @@
  * @return {number[]}
  */
 var addToArrayForm = function (num, k) {
-  var n = num.length - 1
-  var ka = k.toString().split('')
-  var i = ka.length - 1
-  var c = 0
-  var y = []
-  while (n >= 0 || i >= 0) {
-    var a = num[n] || 0
-    var b = ka[i] || 0
-    var sum = Number(a) + Number(b) + Number(c)
-    var res = sum % 10
-    c = Math.floor(sum / 10)
-    y.push(res)
-    n--
-    i--
-  }
-  if (c !== 0) {
-    y.push(c)
-  }
-  return y.reverse()
+    var n = num.length - 1
+    var ka = k.toString().split('')
+    var i = ka.length - 1
+    var c = 0
+    var y = []
+    while (n >= 0 || i >= 0) {
+        var a = num[n] || 0
+        var b = ka[i] || 0
+        var sum = Number(a) + Number(b) + Number(c)
+        var res = sum % 10
+        c = Math.floor(sum / 10)
+        y.push(res)
+        n--
+        i--
+    }
+    if (c !== 0) {
+        y.push(c)
+    }
+    return y.reverse()
 };
 //[1,2,0,0]
 // 34

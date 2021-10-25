@@ -13,26 +13,26 @@
  * @return {number[]}
  */
 var plusOne = function (digits) {
-  var k = 0
-  var arr = []
-  for (var i = digits.length - 1; i >= 0; i--) {
-    var n = digits[i]
-    if (i === digits.length - 1) {
-      n = n + 1
+    var k = 0
+    var arr = []
+    for (var i = digits.length - 1; i >= 0; i--) {
+        var n = digits[i]
+        if (i === digits.length - 1) {
+            n = n + 1
+        }
+        n = n + k
+        if (n > 9) {
+            n = n % 10
+            k = 1
+        } else {
+            k = 0
+        }
+        arr.unshift(n)
     }
-    n = n + k
-    if (n > 9) {
-      n = n % 10
-      k = 1
-    } else {
-      k = 0
+    if (k > 0) {
+        arr.unshift(k)
     }
-    arr.unshift(n)
-  }
-  if (k > 0) {
-    arr.unshift(k)
-  }
-  return arr
+    return arr
 };
 
 console.log(plusOne([1, 2, 3]))
