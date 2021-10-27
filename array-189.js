@@ -2,7 +2,7 @@
 /**
  * 给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/third-maximum-number/
+ * 链接：https://leetcode-cn.com/problems/rotate-array/submissions/
  * 思路如下：
  * 首先对整个数组实行翻转，这样子原数组中需要翻转的子数组，就会跑到数组最前面。
  * 这时候，从 k 处分隔数组，左右两数组，各自进行翻转即可。
