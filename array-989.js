@@ -4,7 +4,6 @@
  * 给定非负整数 X 的数组形式 A，返回整数 X+K 的数组形式。
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/add-to-array-form-of-integer
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 /**
  * 公式：当前位= (A的当前位+B的当前位+进位carry)%10
