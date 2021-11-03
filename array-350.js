@@ -13,7 +13,7 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersect_1 = function(nums1, nums2) {
+var intersect = function(nums1, nums2) {
     var obj = {}
     var res = []
     nums1.forEach(function(item) {
@@ -69,5 +69,5 @@ var intersect_2 = function(nums1, nums2) {
     return res
 };
 
-console.log(intersect_1([1,2,2,1], [2,2]))
+console.log(intersect([1,2,2,1], [2,2]))
 console.log(intersect_2([1,2,2,1], [2,2]))
