@@ -8,54 +8,69 @@ var isValidSudoku = function(board) {
   // 一方块数字为0-9，不能重复
 
   // 行
-  var map1 = []
+  var 规则1： = []
   // 列
-  var map2 = []
+  var arr2 = []
   // 方块
-  var map3 = []
-  var flag = false
+  var arr3 = []
+  var flag = true
   for (var i = 0; i < board.length; i ++) {
-    if (!map1[i]) {
-      map1[i] = {}
-    }
-    if (!map2[i]) {
-      map2[i] = {}
-    }
+    
     for (var j = 0; j < board[i].length; j++) {
-      // 记录行
-      var n1 = board[i][j]
-      if (!isNaN(Number(n1))) {
-        if (map1[i][n1] !== undefined) {
-          map1[i][n1] ++
-          flag = true
+      var num = board[i][j]
+      if (!isNaN(Number(num))) {
+        // 记录行； arr1的下标=i
+        if (!arr1[i]) {
+          arr1[i] = {}
+        }
+        if (arr1[i][num] !== undefined) {
+          arr1[i][num] ++
+          flag = false
           break
         } else {
-          map1[i][n1] = 1
+          arr1[i][num] = 1
         }
-      }
-      // 记录列
-      var n2 = board[j][i]
-      if (!isNaN(Number(n2))) {
-        if (map2[i][n2] !== undefined) {
-          map2[i][n2] ++
-          flag = true
+        // 记录列；arr2的下标=j
+        if (!arr2[j]) {
+          arr2[j] = {}
+        }
+        if (arr2[j][num] !== undefined) {
+          arr2[j][num] ++
+          flag = false
           break
         } else {
-          map2[i][n2] = 1
+          arr2[j][num] = 1
+        }
+        // 记录方块；arr3的下标
+        var k = Math.floor(i/3) * 3 + Math.floor(j/3)
+        if (!arr3[k]) {
+          arr3[k] = {}
+        }
+        if (arr3[k][num] !== undefined) {
+          arr3[k][num] ++
+          flag = false
+          break
+        } else {
+          arr3[k][num] = 1
         }
       }
-      // 记录方块
-      
     }
   }
-
-  console.log('map1=, flag=', flag, map1)
-  console.log('map2=, flag=', flag, map2)
 
   return flag
 };
 
-console.log(isValidSudoku([["5",".","3",".","7",".",".",".","."]
+// console.log(isValidSudoku([["5",".","3",".","7",".",".",".","."]
+// ,["6",".",".","1","9","5",".",".","."]
+// ,[".","9","8",".",".",".",".","6","."]
+// ,["8",".",".",".","6",".",".",".","3"]
+// ,["4",".",".","8",".","3",".",".","1"]
+// ,["7",".",".",".","2",".",".",".","6"]
+// ,[".","6",".",".",".",".","2","8","."]
+// ,[".",".",".","4","1","9",".",".","5"]
+// ,[".",".",".",".","8",".",".","7","9"]]))
+
+console.log(isValidSudoku([["8","3",".",".","7",".",".",".","."]
 ,["6",".",".","1","9","5",".",".","."]
 ,[".","9","8",".",".",".",".","6","."]
 ,["8",".",".",".","6",".",".",".","3"]
