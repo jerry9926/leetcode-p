@@ -11,46 +11,19 @@
  * @return {ListNode}
  */
 var removeNthFromEnd = function(head, n) {
-    var length = head.length
-    var res = []
-    for (var i = 0; i < length; i++) {
-        if (i !== length -n) {
-            res.push(head[i])
-        }
+    var vn = new ListNode(0, head)
+    var fast = slow = vn
+    // 移动fast
+    while(n>0) {
+        fast = fast.next
+        n--
     }
-
-    console.log(res)
-    return res
-};
-// var removeNthFromEnd = function(head, n) {
-//     var length = getLength(head)
-//     var res = []
-//     for (var i = 0; i < length - n + 1; i++) {
-//         res.push(head.val)
-//         head = head.next
-//     }
-//     head.next = head.next.next
-//     while(head.next) {
-//         res.push(head.val)
-//         head = head.next
-//     }
-//     console.log(res)
-//     return res
-// };
-
-// var getLength = function (head) {
-//     var i = 1
-//     while (head.next) {
-//         i++
-//         head = head.next
-//     }
-//     return i
-// }
-
-// var list = [1,2,3,4,5]
-// var n = 2
-var list = [1]
-var n = 1
-
-
-removeNthFromEnd(list, n)
+    // 如果n超过了链表长度
+    if (!fast) return vn.next
+    while(fast.next) {
+        fast = fast.next
+        slow = slow.next
+    }
+    slow.next = slow.next.next
+    return vn.next
+}
