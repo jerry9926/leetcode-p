@@ -16,7 +16,7 @@
 3. 比较list1与list2的值，哪个小，把temp.next赋值过去
 4. listX往后移动，listX=listX.next
 5. temp往后移动，temp=temp.next
-6. 如果list1到尾部了，temp.next=list2（因为每个节点都有比较，剩下的一定是比前面的节点大的）
+6. 如果list1到尾部了，temp.next=list2（因为每个节点都有比较，加上本来就是升序链表，剩下的一定是比前面的节点大的）
 7. 如果list2到尾部了，temp.next=list1
 
 
